@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { PawPrint } from 'lucide-react';
 import { motion } from 'framer-motion';
 import clsx from 'clsx';
 
