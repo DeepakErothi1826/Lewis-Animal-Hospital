@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useResolvedPath } from 'react-router-dom';
 import { PawPrint } from 'lucide-react';
 import { motion } from 'framer-motion';
 import clsx from 'clsx';
@@ -7,10 +7,16 @@ import clsx from 'clsx';
 const navLinks = [
   { name: 'Home', path: '/' },
   { name: 'Services', path: '/services' },
-  { name: 'Veterinarians', path: '/about' }, // About covers veterinarians
+  { name: 'Veterinarians', path: '/about' },
   { name: 'Gallery', path: '/gallery' },
   { name: 'Contact', path: '/contact' }
 ];
+
+function useIsActive(path) {
+  const resolved = useResolvedPath(path);
+  const location = useLocation();
+  return location.pathname === resolved.pathname;
+}
 
 export function Navbar() {
   const location = useLocation();
@@ -35,11 +41,11 @@ export function Navbar() {
                 to={link.path}
                 className={clsx(
                   "text-sm font-medium transition-colors hover:text-primary relative py-2",
-                  location.pathname === link.path ? "text-primary" : "text-gray-800"
+                  useIsActive(link.path) ? "text-primary" : "text-gray-800"
                 )}
               >
                 {link.name}
-                {location.pathname === link.path && (
+                {useIsActive(link.path) && (
                   <motion.div
                     layoutId="activeTab"
                     className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"
