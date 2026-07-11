@@ -57,7 +57,7 @@ export const siteData = {
       title: 'Veterinary Surgeon',
       rating: 5,
       experience: '10 Years Experience',
-      image: 'https://images.unsplash.com/photo-1524502397800-2eeaad7c3fe5?q=80&w=200&auto=format&fit=crop'
+      image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=200&auto=format&fit=crop'
     },
     {
       id: 2,

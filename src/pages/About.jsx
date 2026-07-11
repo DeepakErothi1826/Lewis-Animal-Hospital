@@ -132,7 +132,7 @@ export function About() {
             </p>
             <div className="flex items-center gap-4 pt-4">
               <div className="w-16 h-16 rounded-full overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1524502397800-2eeaad7c3fe5?q=80&w=200&auto=format&fit=crop" alt="Dr. Emily Carter" loading="lazy" className="w-full h-full object-cover" />
+                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=200&auto=format&fit=crop" alt="Dr. Emily Carter" loading="lazy" className="w-full h-full object-cover" />
               </div>
               <div>
                 <p className="font-heading font-bold text-text-heading">Dr. Emily Carter</p>
