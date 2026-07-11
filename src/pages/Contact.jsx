@@ -1,11 +1,8 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { PageWrapper } from '../components/layout/PageWrapper';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MapPin, Phone, Mail, Clock, Send, ChevronDown, Facebook, Instagram, Twitter } from 'lucide-react';
 import { BookingSection } from '../components/home/BookingSection';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const faqs = [
   {
@@ -170,9 +167,9 @@ export function Contact() {
             <div className="mt-10">
               <p className="font-heading font-bold text-text-heading mb-4">Follow Us</p>
               <div className="flex gap-4">
-                {socialLinks.map((social, idx) => (
+                {socialLinks.map((social) => (
                   <a
-                    key={idx}
+                    key={social.label}
                     href={social.href}
                     className="w-12 h-12 bg-white border border-gray-200 rounded-xl flex items-center justify-center text-text-body hover:text-primary hover:border-primary hover:shadow-md transition-all"
                   >
@@ -256,8 +253,8 @@ export function Contact() {
           </div>
 
           <div className="max-w-3xl mx-auto space-y-4">
-            {faqs.map((faq, idx) => (
-              <div key={idx} className="faq-item bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+              {faqs.map((faq, idx) => (
+              <div key={faq.q} className="faq-item bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
                 <button
                   className="w-full flex items-center justify-between p-6 text-left"
                   onClick={() => toggleFaq(idx)}
@@ -290,6 +287,7 @@ export function Contact() {
              <img
                 src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1200&auto=format&fit=crop"
                 alt="Map location"
+                loading="lazy"
                 className="w-full h-full object-cover opacity-80 mix-blend-multiply"
              />
              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">

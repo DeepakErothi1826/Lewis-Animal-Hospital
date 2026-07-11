@@ -1,11 +1,8 @@
 import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { siteData } from '../../data/siteData';
 
-gsap.registerPlugin(ScrollTrigger);
-
-export function BlogPreview() {
+export const BlogPreview = React.memo(function BlogPreview() {
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -49,6 +46,7 @@ export function BlogPreview() {
               <img 
                 src={post.image} 
                 alt={post.title} 
+                loading="lazy"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
@@ -65,4 +63,4 @@ export function BlogPreview() {
       </div>
     </section>
   );
-}
+});

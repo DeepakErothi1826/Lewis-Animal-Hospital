@@ -1,12 +1,9 @@
 import React, { useRef, useEffect } from 'react';
 import { PageWrapper } from '../components/layout/PageWrapper';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { siteData } from '../data/siteData';
 import { Heart, ClipboardList, Shield, ArrowRight, CheckCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const processSteps = [
   {
@@ -173,8 +170,8 @@ export function Services() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {whyUsFeatures.map((feature, idx) => (
-              <div key={idx} className="feature-card bg-white p-10 rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-lg transition-all text-center">
+            {whyUsFeatures.map((feature) => (
+              <div key={feature.title} className="feature-card bg-white p-10 rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-lg transition-all text-center">
                 <div className="w-16 h-16 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <feature.icon size={32} />
                 </div>

@@ -1,12 +1,9 @@
 import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ShieldCheck, Clock, Heart } from 'lucide-react';
 import { siteData } from '../../data/siteData';
 import { Link } from 'react-router-dom';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export function HeroSection() {
   const containerRef = useRef(null);
@@ -58,7 +55,7 @@ export function HeroSection() {
           
           <div className="pt-8 flex items-center gap-8 md:gap-12 border-t border-gray-200/60 hero-text-element">
             {siteData.trustMetrics.map((metric, idx) => (
-              <div key={idx} className="flex items-center gap-3">
+              <div key={metric.label} className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
                   {idx === 0 ? <ShieldCheck size={20} /> : idx === 1 ? <Clock size={20} /> : <Heart size={20} />}
                 </div>
@@ -86,11 +83,7 @@ export function HeroSection() {
           </div>
           
           {/* Floating Badge */}
-          <motion.div 
-            animate={{ y: [0, -10, 0] }} 
-            transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-            className="absolute top-12 -left-8 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-4"
-          >
+          <div className="absolute top-12 -left-8 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-4 animate-float">
             <div className="bg-accent/10 p-2 rounded-xl text-accent">
               <Heart size={24} fill="currentColor" />
             </div>
@@ -98,7 +91,7 @@ export function HeroSection() {
               <div className="text-sm font-bold text-text-heading">Top Rated</div>
               <div className="text-xs text-text-body">Veterinary Clinic</div>
             </div>
-          </motion.div>
+          </div>
         </div>
         
       </div>

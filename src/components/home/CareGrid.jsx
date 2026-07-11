@@ -1,11 +1,8 @@
 import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { siteData } from '../../data/siteData';
 
-gsap.registerPlugin(ScrollTrigger);
-
-export function CareGrid() {
+export const CareGrid = React.memo(function CareGrid() {
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -59,4 +56,4 @@ export function CareGrid() {
       </div>
     </section>
   );
-}
+});

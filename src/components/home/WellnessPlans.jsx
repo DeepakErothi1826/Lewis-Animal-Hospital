@@ -1,10 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Check } from 'lucide-react';
 import { siteData } from '../../data/siteData';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export function WellnessPlans() {
   const [isYearly, setIsYearly] = useState(false);
@@ -62,9 +59,9 @@ export function WellnessPlans() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center max-w-5xl mx-auto">
-        {plans.map((plan, idx) => (
+        {plans.map((plan) => (
           <div 
-            key={idx} 
+            key={plan.name} 
             className={`plan-card bg-white rounded-3xl p-8 border ${plan.recommended ? 'border-accent shadow-xl md:-translate-y-4' : 'border-gray-100 shadow-md'} relative flex flex-col h-full`}
           >
             {plan.recommended && (
@@ -83,8 +80,8 @@ export function WellnessPlans() {
             </div>
             
             <ul className="space-y-4 mb-8 flex-grow">
-              {plan.features.map((feature, i) => (
-                <li key={i} className="flex items-start gap-3">
+              {plan.features.map((feature) => (
+                <li key={feature} className="flex items-start gap-3">
                   <Check size={20} className="text-primary shrink-0" />
                   <span className="text-text-body font-medium">{feature}</span>
                 </li>

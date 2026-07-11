@@ -2,7 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { PawPrint, MapPin, Phone, Mail } from 'lucide-react';
 
-export function Footer() {
+const currentYear = new Date().getFullYear();
+
+export const Footer = React.memo(function Footer() {
   return (
     <footer className="bg-primary text-white pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -70,7 +72,7 @@ export function Footer() {
 
         <div className="border-t border-primary-light/30 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-primary-light/60 text-sm">
-            &copy; {new Date().getFullYear()} Lewis Animal Hospital. All rights reserved.
+            &copy; {currentYear} Lewis Animal Hospital. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <Link to="/privacy" className="text-primary-light/60 hover:text-white text-sm transition-colors">Privacy Policy</Link>
@@ -80,4 +82,4 @@ export function Footer() {
       </div>
     </footer>
   );
-}
+});

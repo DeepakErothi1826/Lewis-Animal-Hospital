@@ -1,10 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { siteData } from '../../data/siteData';
 import { ShoppingCart } from 'lucide-react';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export function ShopPreview() {
   const sectionRef = useRef(null);
@@ -50,6 +47,7 @@ export function ShopPreview() {
               <img 
                 src={product.image} 
                 alt={product.name} 
+                loading="lazy"
                 className="w-32 h-32 object-contain group-hover:scale-110 transition-transform duration-300"
               />
             </div>

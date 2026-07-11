@@ -1,12 +1,9 @@
 import React, { useRef, useEffect } from 'react';
 import { PageWrapper } from '../components/layout/PageWrapper';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Veterinarians } from '../components/home/Veterinarians';
 import { Star, Heart, Shield, Users, Award, Target, Eye } from 'lucide-react';
 import { siteData } from '../data/siteData';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const milestones = [
   { year: '2012', event: 'Lewis Animal Hospital founded with a vision for compassionate care.' },
@@ -135,7 +132,7 @@ export function About() {
             </p>
             <div className="flex items-center gap-4 pt-4">
               <div className="w-16 h-16 rounded-full overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1594824436998-058e2f28f639?q=80&w=200&auto=format&fit=crop" alt="Dr. Emily Carter" className="w-full h-full object-cover" />
+                <img src="https://images.unsplash.com/photo-1594824436998-058e2f28f639?q=80&w=200&auto=format&fit=crop" alt="Dr. Emily Carter" loading="lazy" className="w-full h-full object-cover" />
               </div>
               <div>
                 <p className="font-heading font-bold text-text-heading">Dr. Emily Carter</p>
@@ -146,10 +143,11 @@ export function About() {
           <div className="story-image relative">
             <div className="rounded-[3rem] overflow-hidden aspect-[4/5] shadow-xl">
               <img
-                src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=800&auto=format&fit=crop"
-                alt="Veterinary team at work"
-                className="w-full h-full object-cover"
-              />
+                  src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=800&auto=format&fit=crop"
+                  alt="Veterinary team at work"
+                  loading="lazy"
+                  className="w-full h-full object-cover"
+                />
             </div>
             <div className="absolute -bottom-6 -left-6 bg-accent text-white px-8 py-6 rounded-3xl shadow-lg">
               <p className="text-3xl font-heading font-bold">12+</p>
@@ -173,8 +171,8 @@ export function About() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((value, idx) => (
-              <div key={idx} className="value-card bg-white p-8 rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-lg transition-all text-center">
+            {values.map((value) => (
+              <div key={value.title} className="value-card bg-white p-8 rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-lg transition-all text-center">
                 <div className="w-14 h-14 bg-accent/10 text-accent rounded-2xl flex items-center justify-center mx-auto mb-5">
                   <value.icon size={28} />
                 </div>
@@ -199,8 +197,8 @@ export function About() {
           <div className="relative">
             <div className="absolute left-8 top-0 bottom-0 w-px bg-gray-200 hidden md:block"></div>
             <div className="space-y-12">
-              {milestones.map((m, idx) => (
-                <div key={idx} className="timeline-item relative pl-0 md:pl-24">
+              {milestones.map((m) => (
+                <div key={m.year} className="timeline-item relative pl-0 md:pl-24">
                   <div className="hidden md:flex absolute left-4 w-9 h-9 bg-primary text-white rounded-full items-center justify-center -translate-x-1/2 font-heading font-bold text-sm">
                     {m.year.slice(2)}
                   </div>

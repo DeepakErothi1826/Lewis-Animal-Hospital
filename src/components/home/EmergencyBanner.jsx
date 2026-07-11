@@ -1,11 +1,8 @@
 import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { PhoneCall } from 'lucide-react';
 
-gsap.registerPlugin(ScrollTrigger);
-
-export function EmergencyBanner() {
+export const EmergencyBanner = React.memo(function EmergencyBanner() {
   const bannerRef = useRef(null);
 
   useEffect(() => {
@@ -69,10 +66,11 @@ export function EmergencyBanner() {
           <img 
             src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=800&auto=format&fit=crop" 
             alt="Veterinarian with dog" 
+            loading="lazy"
             className="w-full h-full object-cover object-center"
           />
         </div>
       </div>
     </section>
   );
-}
+});

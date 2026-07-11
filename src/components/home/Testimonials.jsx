@@ -1,12 +1,9 @@
 import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { siteData } from '../../data/siteData';
 import { Star, Quote } from 'lucide-react';
 
-gsap.registerPlugin(ScrollTrigger);
-
-export function Testimonials() {
+export const Testimonials = React.memo(function Testimonials() {
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -62,7 +59,7 @@ export function Testimonials() {
             </p>
             
             <div className="flex items-center gap-4">
-              <img src={review.image} alt={review.name} className="w-14 h-14 rounded-full object-cover" />
+              <img src={review.image} alt={review.name} loading="lazy" className="w-14 h-14 rounded-full object-cover" />
               <div>
                 <h4 className="font-heading font-bold text-text-heading">{review.name}</h4>
                 <p className="text-sm text-text-body">{review.type}</p>
@@ -88,6 +85,7 @@ export function Testimonials() {
             <img 
               src="https://images.unsplash.com/photo-1629909615184-74f495363b67?q=80&w=800&auto=format&fit=crop" 
               alt="Woman hugging dog" 
+              loading="lazy"
               className="w-full h-full object-cover"
             />
           </div>
@@ -97,4 +95,4 @@ export function Testimonials() {
       </div>
     </section>
   );
-}
+});

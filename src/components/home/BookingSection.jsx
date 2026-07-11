@@ -1,9 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { CheckCircle2 } from 'lucide-react';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export function BookingSection() {
   const sectionRef = useRef(null);
@@ -38,6 +35,7 @@ export function BookingSection() {
             <img 
               src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=600&auto=format&fit=crop" 
               alt="Happy dog looking up" 
+              loading="lazy"
               className="w-full h-full object-cover"
             />
             {/* Overlay Gradient */}
@@ -53,8 +51,8 @@ export function BookingSection() {
             </p>
             
             <ul className="space-y-4">
-              {['Easy Online Booking', 'Flexible Scheduling', 'SMS Reminders'].map((item, idx) => (
-                <li key={idx} className="flex items-center gap-3 text-text-heading font-medium">
+              {['Easy Online Booking', 'Flexible Scheduling', 'SMS Reminders'].map((item) => (
+                <li key={item} className="flex items-center gap-3 text-text-heading font-medium">
                   <CheckCircle2 size={20} className="text-accent" />
                   {item}
                 </li>

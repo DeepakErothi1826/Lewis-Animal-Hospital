@@ -3,10 +3,7 @@ import { PageWrapper } from '../components/layout/PageWrapper';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ZoomIn, Camera, Youtube } from 'lucide-react';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const galleryImages = [
   { id: 1, category: 'Clinic', url: 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=600&auto=format&fit=crop', title: 'Reception Area' },
@@ -88,15 +85,12 @@ export function Gallery() {
         </div>
 
         {/* Gallery Grid */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
-          <AnimatePresence>
-            {filteredImages.map((img) => (
-              <motion.div
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
+          {filteredImages.map((img) => (
+            <motion.div
                 key={img.id}
-                layout
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3 }}
                 className="group relative rounded-3xl overflow-hidden aspect-[4/3] cursor-pointer shadow-sm hover:shadow-xl bg-gray-100"
                 onClick={() => setSelectedImage(img)}
@@ -104,6 +98,7 @@ export function Gallery() {
                 <img
                   src={img.url}
                   alt={img.title}
+                  loading="lazy"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white">
@@ -112,8 +107,7 @@ export function Gallery() {
                 </div>
               </motion.div>
             ))}
-          </AnimatePresence>
-        </motion.div>
+        </div>
 
         {/* Video Tour Section */}
         <div className="mb-24">
@@ -131,10 +125,11 @@ export function Gallery() {
 
           <div className="relative rounded-[3rem] overflow-hidden aspect-video max-w-4xl mx-auto shadow-xl bg-gray-100">
             <img
-              src="https://images.unsplash.com/photo-1584813470613-5b1c1cad3d69?q=80&w=1200&auto=format&fit=crop"
-              alt="Clinic video tour"
-              className="w-full h-full object-cover"
-            />
+                src="https://images.unsplash.com/photo-1584813470613-5b1c1cad3d69?q=80&w=1200&auto=format&fit=crop"
+                alt="Clinic video tour"
+                loading="lazy"
+                className="w-full h-full object-cover"
+              />
             <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
               <div className="w-20 h-20 bg-white/90 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform cursor-pointer">
                 <Youtube size={36} className="text-primary ml-1" />

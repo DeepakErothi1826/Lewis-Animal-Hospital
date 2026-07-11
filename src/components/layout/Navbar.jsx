@@ -1,6 +1,5 @@
-import React from 'react';
-import { Link, useLocation, useResolvedPath } from 'react-router-dom';
-import { PawPrint } from 'lucide-react';
+import React, { useMemo } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import clsx from 'clsx';
 
@@ -12,14 +11,16 @@ const navLinks = [
   { name: 'Contact', path: '/contact' }
 ];
 
-function useIsActive(path) {
-  const resolved = useResolvedPath(path);
-  const location = useLocation();
-  return location.pathname === resolved.pathname;
-}
-
 export function Navbar() {
   const location = useLocation();
+  const activePaths = useMemo(() => {
+    const paths = {};
+    navLinks.forEach(link => {
+      paths[link.path] = location.pathname.endsWith(link.path) ||
+        (link.path === '/' ? location.pathname === '/' : false);
+    });
+    return paths;
+  }, [location.pathname]);
 
   return (
     <nav className="fixed w-full z-50 bg-background-cream/90 backdrop-blur-md border-b border-gray-200/50">
@@ -35,17 +36,19 @@ export function Navbar() {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
+            {navLinks.map((link) => {
+              const isActive = activePaths[link.path];
+              return (
               <Link
                 key={link.name}
                 to={link.path}
                 className={clsx(
                   "text-sm font-medium transition-colors hover:text-primary relative py-2",
-                  useIsActive(link.path) ? "text-primary" : "text-gray-800"
+                  isActive ? "text-primary" : "text-gray-800"
                 )}
               >
                 {link.name}
-                {useIsActive(link.path) && (
+                {isActive && (
                   <motion.div
                     layoutId="activeTab"
                     className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"
@@ -54,7 +57,8 @@ export function Navbar() {
                   />
                 )}
               </Link>
-            ))}
+              );
+            })}
           </div>
 
           {/* CTA */}
