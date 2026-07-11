@@ -57,7 +57,7 @@ export const siteData = {
       title: 'Veterinary Surgeon',
       rating: 5,
       experience: '10 Years Experience',
-      image: 'https://images.unsplash.com/photo-1594824436998-058e2f28f639?q=80&w=200&auto=format&fit=crop'
+      image: 'https://images.unsplash.com/photo-1524502397800-2eeaad7c3fe5?q=80&w=200&auto=format&fit=crop'
     },
     {
       id: 2,
@@ -120,12 +120,12 @@ export const siteData = {
   },
   products: [
     { id: 1, name: 'Premium Dog Food', price: 29.99, image: 'https://images.unsplash.com/photo-1589924691995-400dc9ecc119?q=80&w=150&auto=format&fit=crop' },
-    { id: 2, name: 'Cat Litter', price: 18.99, image: 'https://images.unsplash.com/photo-1571569421877-3e83120155b9?q=80&w=150&auto=format&fit=crop' },
+    { id: 2, name: 'Cat Litter', price: 18.99, image: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=150&auto=format&fit=crop' },
     { id: 3, name: 'Pet Shampoo', price: 14.99, image: 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=150&auto=format&fit=crop' },
     { id: 4, name: 'Pet Toys', price: 9.99, image: 'https://images.unsplash.com/photo-1576201836106-db1758fd1c97?q=80&w=150&auto=format&fit=crop' }
   ],
   blogPosts: [
-    { id: 1, title: '10 Signs Your Pet Needs a Vet Visit', date: 'May 20, 2024', image: 'https://images.unsplash.com/photo-1537151608804-ea2fb2564883?q=80&w=300&auto=format&fit=crop' },
+    { id: 1, title: '10 Signs Your Pet Needs a Vet Visit', date: 'May 20, 2024', image: 'https://images.unsplash.com/photo-1583511655826-05700d52f4d9?q=80&w=300&auto=format&fit=crop' },
     { id: 2, title: 'How to Keep Your Pet Happy & Healthy', date: 'May 18, 2024', image: 'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=300&auto=format&fit=crop' },
     { id: 3, title: 'Guide to Pet Nutrition Basics', date: 'May 15, 2024', image: 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=300&auto=format&fit=crop' }
   ],

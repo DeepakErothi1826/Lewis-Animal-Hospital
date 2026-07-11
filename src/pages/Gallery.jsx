@@ -15,7 +15,7 @@ const galleryImages = [
   { id: 7, category: 'Patients', url: 'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=600&auto=format&fit=crop', title: 'Puppy Playtime' },
   { id: 8, category: 'Surgeries', url: 'https://images.unsplash.com/photo-1579154204601-01588f351e67?q=80&w=600&auto=format&fit=crop', title: 'Surgery Suite' },
   { id: 9, category: 'Grooming', url: 'https://images.unsplash.com/photo-1583511655826-05700d52f4d9?q=80&w=600&auto=format&fit=crop', title: 'Cat Grooming' },
-  { id: 10, category: 'Clinic', url: 'https://images.unsplash.com/photo-1632392035992-82a5e2b0c35f?q=80&w=600&auto=format&fit=crop', title: 'Treatment Area' },
+  { id: 10, category: 'Clinic', url: 'https://images.unsplash.com/photo-1517433670267-08bbd4be890f?q=80&w=600&auto=format&fit=crop', title: 'Treatment Area' },
   { id: 11, category: 'Patients', url: 'https://images.unsplash.com/photo-1568571780765-9276ac8b75a2?q=80&w=600&auto=format&fit=crop', title: 'Happy Cat' },
   { id: 12, category: 'Grooming', url: 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=600&auto=format&fit=crop', title: 'Pet Bath Station' },
 ];
